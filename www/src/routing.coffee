@@ -134,7 +134,13 @@ $('#map-page').bind 'pageshow', (e, data) ->
         zoom = Math.min(map.getBoundsZoom(position_bounds), 15)
         map.setView(position_point, zoom)
 
-
+$('#userlocation').on 'click', (e) -> map.locate
+        setView: true
+        maxZoom: 15
+        watch: true
+        timeout: Infinity
+        enableHighAccuracy: true
+		
 $('#map-page [data-rel="back"]').on 'click', (e) -> reset_map()
 
 reset_map = () ->
