@@ -50,6 +50,13 @@ class CityNavigator
     get_itinerary: ->
         return @itinerary
     set_itinerary: (itinerary) ->
+        window.console.log itinerary
+        for leg, index in itinerary.legs
+            if leg.mode == "WALK" && index == 0
+              window.notify.notifyOn "Go to the busstation", "", leg.startTime, "static/images/walking.svg"
+            else if leg.mode == "BUS" 
+                window.notify.notifyOn "Enter Bus #{leg.route} #{leg.headsign}", "", leg.startTime - 6000, "static/images/bus_stop.svg"
+                window.notify.notifyOn "Leave Bus #{leg.route} #{leg.headsign}", "", leg.endTime - 6000, "static/images/bus_stop.svg"
         @itinerary = itinerary
 
 # The area for which the city-navigator is configured to.
