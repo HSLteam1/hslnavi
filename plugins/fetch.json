@@ -5,5 +5,11 @@
             "url": "https://github.com/katzer/cordova-plugin-local-notifications",
             "subdir": "."
         }
+    },
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device"
+        }
     }
 }
