@@ -540,6 +540,9 @@ find_route_otp = (source, target, callback) ->
             callback(routeLayer)
         $.mobile.changePage "#map-page"
         console.log "opentripplanner callback done"
+ 
+window.bringMeThere = (target_location) ->
+    route_to_destination target_location
 
 display_route_result = (data) ->
     if data.error?.msg
